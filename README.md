@@ -1,0 +1,31 @@
+# Sudoku-Solver
+
+Overview:
+
+I was ecstatic to receive this project because I play Sudoku often and this was no new problem for me to tackle.
+This problem strongly reminded me of the 8-Queens problem that I have solved in my 211 - OOP C++ class. The goal 
+of that project was to place as many queens possible in an 8 by 8 grid. The approach that we were taught to pursue 
+was to place a queen on the first tile and try to place the next. If the next cannot be placed, try the next place 
+and so on fourth. 
+
+General Structure:
+
+Originally, I tackled this with the same approach (8-Queens); I have placed the first available digit 
+in the first available slot. If that number is valid, it will recursively try to place the next number. If the 
+number is not valid in the next placement of the Sudoku, it will increment the previous cell by backtracking using 
+recursion's natural stack data structure. The new way my program now solves the Sudoku grid is to find a cell with 
+the least number of elements and try to find the coordinates which are available to have a number placed in them. 
+
+The CSV files are an interesting twist to add to this project; I spent more time trying to find a good way to read 
+them than implementing an algorithm to solve the Sudoku. After finding a good way to parse the file into the "SudokuGrid" 
+object, I was finally satisfied with storing the 2-dimensional layout to a 1-dimensional array of size 81 (9 by 9 grid).
+
+How to use (Input Output):
+
+There is no direct interface to use with this program. Simply have four CSV files named "easy0.csv" "easy1.csv" "hard0.csv" and "hard1.csv" 
+containing the Sudoku values; respectively, the program will output files starting from 0.csv to 3.csv with the solutions in CSV format. 
+
+Exception Handling:
+If there is a file that cannot be parsed, there will be an exception thrown into System.out and will skip the file that threw an error.
+If there is an output file IO exception, there will be a null pointer exception following the error result and the program will stop 
+running. This will be treated as a fatal exception as there should be space for a file to be written to.
